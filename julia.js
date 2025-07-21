@@ -70,5 +70,14 @@ function drawJulia() {
   ctx.putImageData(imgData, 0, 0);
 }
 
+// resize //
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  drawJulia(); // Re-render fractal
+});
+
+
 // Run the function to generate the image
 drawJulia();
