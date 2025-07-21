@@ -89,22 +89,24 @@ function drawMandelbrot() {
 
   for (let px = 0; px < width; px++) {
     for (let py = 0; py < height; py++) {
-      // Map pixel to complex plane coords
       let x0 = 1.5 * (px - width / 2) / (0.5 * zoom * width);
       let y0 = (py - height / 2) / (0.5 * zoom * height);
+
+      // Rotate coordinates by angle
+      let xr = x0 * Math.cos(angle) - y0 * Math.sin(angle);
+      let yr = x0 * Math.sin(angle) + y0 * Math.cos(angle);
 
       let x = 0;
       let y = 0;
       let i = 0;
 
       while (x*x + y*y < 4 && i < maxIter) {
-        let xtemp = x*x - y*y + x0;
-        y = 2 * x * y + y0;
+        let xtemp = x*x - y*y + xr;
+        y = 2 * x * y + yr;
         x = xtemp;
         i++;
       }
 
-      // Color by iteration count
       const color = i === maxIter ? 0 : 255 - i * 255 / maxIter;
       const idx = (px + py * width) * 4;
 
@@ -117,6 +119,7 @@ function drawMandelbrot() {
 
   ctx.putImageData(imgData, 0, 0);
 }
+
 
 /**
  * Main animation loop
