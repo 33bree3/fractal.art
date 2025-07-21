@@ -1,0 +1,73 @@
+<!-- /* messing around with fractal art -->*/
+
+
+<!-- mandlebrot set --->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fractal Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="fractalCanvas"></canvas>
+  <script src="fractal.js"></script>
+</body>
+</html>
+
+
+<!-- CCS page set up stuff -->
+
+body {
+  margin: 0;
+  background: black;
+}
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* <!-- mandle brot set */
+
+const canvas = document.getElementById("fractalCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function drawMandelbrot() {
+  const img = ctx.createImageData(canvas.width, canvas.height);
+  const maxIter = 100;
+  for (let x = 0; x < canvas.width; x++) {
+    for (let y = 0; y < canvas.height; y++) {
+      let zx = 0, zy = 0;
+      let cx = (x - canvas.width / 2) / 200;
+      let cy = (y - canvas.height / 2) / 200;
+      let i = 0;
+      while (zx*zx + zy*zy < 4 && i < maxIter) {
+        let tmp = zx * zx - zy * zy + cx;
+        zy = 2 * zx * zy + cy;
+        zx = tmp;
+        i++;
+      }
+      let p = (x + y * canvas.width) * 4;
+      img.data[p] = i * 9;
+      img.data[p + 1] = i * 5;
+      img.data[p + 2] = i * 2;
+      img.data[p + 3] = 255;
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+}
+
+drawMandelbrot();
+
+git add .
+git commit -m "Initial fractal visualizer"
+git push origin main
+
+
+
