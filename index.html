@@ -1,5 +1,4 @@
-<!-- /* mandlebrot set -->
-
+<!-- fractal indexxxxxxxxxxx --> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,26 +6,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fractal Visualiser</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Internal CSS for quick styling -->
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    canvas {
+      border: 2px solid #333;
+    }
+  </style>
 </head>
+
 <body>
   <canvas id="fractalCanvas" width="800" height="600"></canvas>
 
   <script src="julia.js"></script>
-
-  margin: 0;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-canvas {
-  border: 2px solid #333;
-}
-}
 </body>
 </html>
+
 
 
