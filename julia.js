@@ -10,8 +10,8 @@ const height = canvas.height;
 
 // These are the constant real and imaginary parts for the Julia set formula z = z^2 + c
 // You can change these to generate different-looking fractals
-const cRe = -0.7;
-const cIm = 0.27015;
+const cRe = -0.123;
+const cIm = 0.745;
 
 /**
  * Main function that draws the Julia set on the canvas
