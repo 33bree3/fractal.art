@@ -3,8 +3,9 @@ const canvas = document.getElementById("fractalCanvas");
 const ctx = canvas.getContext("2d");
 
 // Set the canvas dimensions to fill the browser window
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const width = canvas.width;
+const height = canvas.height;
+
 
 // Store the canvas dimensions for easier reference
 const width = canvas.width;
@@ -70,13 +71,7 @@ function drawJulia() {
   ctx.putImageData(imgData, 0, 0);
 }
 
-// resize //
 
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  drawJulia(); // Re-render fractal
-});
 
 
 // Run the function to generate the image
