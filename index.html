@@ -6,20 +6,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mandelbrot Viewer</title>
+  <title>Fractal Visualiser</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="fractalCanvas"></canvas>
+  <canvas id="fractalCanvas" width="800" height="600"></canvas>
+
   <script src="julia.js"></script>
 
-  body {
+ body {
   margin: 0;
   background: black;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
+
 canvas {
-  display: block;
+  border: 2px solid #333;
+}
 }
 </body>
 </html>
