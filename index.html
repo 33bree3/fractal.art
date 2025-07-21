@@ -21,8 +21,8 @@
     canvas {
       border: 2px solid #444;
       margin-top: 1rem;
-      max-width: 111vw;
-      max-height: 90vh;
+      max-width: 101vw;
+      max-height: 80vh;
     }
     .controls {
       display: flex;
@@ -72,11 +72,11 @@
 <div class="controls">
   <div class="control-group">
     <label for="zoom">Zoom</label>
-    <input type="range" id="zoom" min="0.5" max="5" step="0.05" value="1.5" />
+    <input type="range" id="zoom" min="3" max="9" step="0.05" value="1.5" />
   </div>
   <div class="control-group">
     <label for="iterations">Iterations</label>
-    <input type="range" id="iterations" min="50" max="1000" step="50" value="300" />
+    <input type="range" id="iterations" min="111" max="3333" step="50" value="300" />
   </div>
   <div class="control-group">
     <label for="speed">Rotation Speed</label>
@@ -90,7 +90,7 @@
 </div>
 
 <!-- The canvas for drawing fractals -->
-<canvas id="fractalCanvas" width="800" height="600"></canvas>
+<canvas id="fractalCanvas" width="1111" height="639"></canvas>
 
 <script src="fractal.js"></script>
 
